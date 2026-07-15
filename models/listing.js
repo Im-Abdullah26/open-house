@@ -12,7 +12,7 @@ const listingSchema = new mongoose.Schema({
     },
     streetAddress: {
         type: String,
-        required: true
+        required: true,
     },
     city: {
         type: String,
@@ -26,6 +26,7 @@ const listingSchema = new mongoose.Schema({
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
+        required: true,
     },
 }, { timestamps: true } )
 
