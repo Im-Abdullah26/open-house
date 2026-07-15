@@ -8,20 +8,19 @@ const create = async (req, res) => {
     const listingData = {}
 
     listingData.price = req.body.price
-    listingData.streetAdress = req.body.streetAdress
+    listingData.streetAddress = req.body.streetAddress
     listingData.city = req.body.city
     listingData.size = req.body.size
     listingData.owner = req.session.user._id
 
-    //if there is no image, we should not add it to the data object
+    // if there is no image, we should not add it to the data object
     if (req.body.image) {
         listingData.image = req.body.image
     }
-    listingData.image = req.body.image
 
     let createdListing = await Listing.create(listingData)
-
-res.redirect('/listings')
+    
+    res.redirect('/listings')
 }
 
 const index = async (req, res) => {
@@ -31,7 +30,7 @@ const index = async (req, res) => {
 }
 
 module.exports = {
-    showNewForm, 
+    showNewForm,
     create,
     index,
 }
